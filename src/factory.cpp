@@ -43,6 +43,7 @@
 #endif
 #if defined(__FreeBSD__) || defined(__linux__)
 #include "modules/battery.hpp"
+#include "modules/device_battery.hpp"
 #endif
 #if defined(HAVE_CPU_LINUX) || defined(HAVE_CPU_BSD)
 #include "modules/cpu.hpp"
@@ -233,6 +234,9 @@ waybar::AModule* waybar::Factory::makeModule(const std::string& name,
 #if defined(HAVE_CPU_LINUX) || defined(HAVE_CPU_BSD)
     if (ref == "cpu") {
       return new waybar::modules::Cpu(id, config_[name]);
+    }
+    if (ref == "device-battery-module") {
+      return new DeviceBattery(id, config_[name]);
     }
 #if defined(HAVE_CPU_LINUX)
     if (ref == "cpu_frequency") {

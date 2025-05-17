@@ -215,6 +215,7 @@ if is_linux
         'src/modules/memory/linux.cpp',
         'src/modules/power_profiles_daemon.cpp',
         'src/modules/systemd_failed_units.cpp',
+        'src/modules/device_battery.cpp',
     )
     man_files += files(
         'man/waybar-battery.5.scd',
